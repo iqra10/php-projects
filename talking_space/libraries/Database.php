@@ -15,7 +15,7 @@ public function __construct() {
     
     // Set DSN
     
-  $dsn = 'mysql:host=' . $this->host . $this->dbname;
+  $dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->dbname;
 
   // Set options
   $options = array(
@@ -28,10 +28,12 @@ public function __construct() {
     
 try {
      
- $this->dbh = new PDO ($dsn, $this->user, $this->pass, $options);    
+ $this->dbh = new PDO ($dsn, $this->user, $this->pass, $options); 
+    
+ if($this->dbh) echo "Connected";
      
  } // catch any errors
-catch ( PDOException $e) {
+catch (PDOException $e) {
     
     $this->error = $e->getMessage();
 }
@@ -76,7 +78,7 @@ public function execute() {
  
 public function resultset() {
     
-    $this.execute();
+    $this->execute();
     return $this->stmt->fetchAll(PDO::FETCH_OBJ);
 }    
 

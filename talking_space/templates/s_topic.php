@@ -6,43 +6,78 @@
 <div class="col-md-8">
 <div class="main-col">
 <div class="block">
-<h1 class="pull-left">Create an account.</h1>
+<h1 class="pull-left">How did you learn CSS and HTML?</h1>
 <h4 class="pull-right">A simple PHP Forum engine.</h4>
 <div class="clearfix">
 <hr>
-<form role="form" enctype="multipart/form-data" method="post" action="register.php">
- <div class="form-group">
-  <label for='exampleInputName1'>Name*</label>
-    <input type="text" name="name" class="form-control" id="exampleInputEmail1" placeholder="Enter Your Name" />
+<ul id="topics">
+<li id="main-topic" class="topic topic">
+<div class="row">
+<div class="col-md-2">
+<div class="user-info">
+  <img class="avatar pull-left" src="images/avatar/avatar.png" />
+    <ul>
+      <li>BradT81</li>
+      <li>43 Posts</li>
+      <li><a href="profile.php">Profile</a></li>
+   </ul>
 </div>
-    
-<div class="form-group">
-  <label for='exampleInputEmail1'>Email Address*</label>
-    <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Enter Your Email Address" />
 </div>
-    
-<div class="form-group">
-  <label for='exampleInputName1'>Choose Username*</label>
-    <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Create A Username" />
+<div class="col-md-10">
+<div class="topic-content pull-right">
+<p>This is dummy text.</p>
 </div>
-    
-<div class="form-group">
-  <label for='exampleInputPassword1'>Password*</label>
-    <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Password" />
-</div>    
+</div>
+</div>
+</li>
 
-<div class="form-group">
-  <label for='exampleInputPassword1'>Confirm Password*</label>
-    <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Password" />
-</div>      
- 
-<div class="form-group">
-  <label for='exampleInputEmail1'>Upload Avatar</label>
-    <input type="file" name="avatar" class="form-control" id="exampleInputFile1" />
-</div>  
-<button type="submit" name="create" class="btn btn-primary input-group-btn">Submit</button> 
+<li class="topic topic">
+<div class="row">
+<div class="col-md-2">
+<div class="user-info">
+  <img class="avatar pull-left" src="images/avatar/avatar.png" />
+    <ul>
+      <li>BradT81</li>
+      <li>43 Posts</li>
+      <li><a href="profile.php">Profile</a></li>
+   </ul>
+</div>
+</div>
+<div class="col-md-10">
+<div class="topic-content pull-right">
+<p>This is dummy text.</p>
+</div>
+</div>
+</div>
+</li>
     
-</form>
+<li class="topic topic">
+<div class="row">
+<div class="col-md-2">
+<div class="user-info">
+  <img class="avatar pull-left" src="images/avatar/avatar.png" />
+    <ul>
+      <li>BradT81</li>
+      <li>43 Posts</li>
+      <li><a href="profile.php">Profile</a></li>
+   </ul>
+</div>
+</div>
+<div class="col-md-10">
+<div class="topic-content pull-right">
+<p>This is dummy text.</p>
+</div>
+</div>
+</div>
+</li>   
+</ul>
+<h3>Reply to topic:</h3> 
+<form role="form">
+<div class="form-group">
+    <textarea id="reply" rows="10" cols="80" class="form-control" name="reply"></textarea>
+</div>
+<button type="submit" name="submit" class="btn btn-primary input-group-btn">Submit</button> 
+</form>    
 </div>
 </div>   
 </div>
@@ -83,5 +118,7 @@
 </div>
     
 </main>
+<script>CKEDITOR.replace('body'); </script> 
+<script>CKEDITOR.replace('reply'); </script>   
 
 <?php include 'includes/footer.php'; ?>

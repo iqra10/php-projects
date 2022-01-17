@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
-    <title>Talking Space Forum</title>
+    <title>Fixed top navbar example · Bootstrap v5.1</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/navbar-fixed/">
 
@@ -70,16 +70,14 @@
 <div class="clearfix">
 <hr>
 <ul id="topics">
-<?php if($topics) : ?>
-<?php foreach($topics as $topic) : ?>    
 <li class="topic">
 <div class="row">
 <div class="col-md-2">
-  <img class="avatar pull-left" src="images/avatar/<?php echo $topic->avatar ?>" />
+  <img class="avatar pull-left" src="images/avatar/avatar.png" />
 </div>
 <div class="col-md-10">
 <div class="topic-content pull-right">
-<h3><a href="topic.html"><?php echo $topic->title; ?></a></h3>
+<h3><a href="topic.html">How did you learn CSS and HTML?</a></h3>
 <div class="topic-info">
 <a href="category.html">Development</a> >> <a href="profile.html">BradT@1</a>    
 <span class="badge pull-right">3</span>
@@ -88,11 +86,7 @@
 </div>
 </div>
 </li>
-<?php endforeach ; ?>
-<?php else : ?>    
-<h3>Nothing to display.</h3>
-<?php endif; ?>
-<!--
+    
 <li class="topic">
 <div class="row">
 <div class="col-md-2">
@@ -124,13 +118,14 @@
 </div>
 </div>
 </li>    
--->
 </ul>
+<!--
 <h3>Forum Statistics</h3>
 <ul>
 <li>Total Number of Users: <strong>52</strong></li>
 <li>Total Number of Topics: <strong>10</strong></li>
 <li>Total Number of Categories: <strong>5</strong></li>  </ul>   
+-->
 </div>
 </div>   
 </div>
