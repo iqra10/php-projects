@@ -1,5 +1,5 @@
 <?php
-require_once '../core/init.php';
+require_once '../index.php';
 
 $topicClass = new Topic();
 $topics = $topicClass->getAllTopics();

@@ -1,4 +1,11 @@
-<?php require('core/init.php'); ?>
+<?php
+/** Absolute path to the WordPress directory. */
+if ( ! defined( 'ABSPATH' ) ) {
+	define( 'ABSPATH', dirname( __FILE__ ) . '/' );
+}
+
+
+require_once( ABSPATH . 'core/init.php'); ?>
 
 <?php
 
@@ -14,7 +21,7 @@ $topic = new Topic;
 $template->topics = $topic->getAllTopics();
 
 
-echo $template;
+//echo $template;
 
 
 ?>
