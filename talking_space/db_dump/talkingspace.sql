@@ -94,7 +94,7 @@ CREATE TABLE `users` (
   `password` varchar(64) NOT NULL,
   `about` text NOT NULL,
   `last_activity` datetime NOT NULL,
-  `join_date` date NOT NULL DEFAULT current_timestamp()
+  `join_date` date NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -102,7 +102,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `avatar`, `username`, `password`, `about`, `last_activity`, `join_date`) VALUES
-(1, 'Brad Traversy', 'techguyinfo@gmail.com', 'avatar.png', 'BradT', '123', 'I am web developer from Boston MA.', '2022-01-12 08:07:30', '2022-01-12');
+(1, 'Brad Traversy', 'techguyinfo@gmail.com', 'avatar.png', 'BradT', '123', 'I am web developer from Boston MA.', '2022-01-12 08:07:30', '2022-01-12 08:07:30');
 
 --
 -- Indexes for dumped tables

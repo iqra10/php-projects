@@ -36,6 +36,7 @@ try {
 catch (PDOException $e) {
     
     $this->error = $e->getMessage();
+	die($this->error);
 }
     
 }

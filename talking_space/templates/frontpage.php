@@ -1,3 +1,9 @@
+<?php
+require_once '../core/init.php';
+
+$topicClass = new Topic();
+$topics = $topicClass->getAllTopics();
+?>
 <!doctype html>
 <html lang="en">
   <head>
