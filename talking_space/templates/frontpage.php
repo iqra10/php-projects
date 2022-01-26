@@ -1,79 +1,19 @@
 <?php
+
 require_once '../index.php';
 
 $topicClass = new Topic();
+
 $topics = $topicClass->getAllTopics();
+
+$totalTopics = $topicClass->getTotalTopics();
+    
+$totalCategories = $topicClass->getTotalCategories();
+
+
 ?>
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.88.1">
-    <title>Talking Space Forum</title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/navbar-fixed/">
-
-    
-
-    <!-- Bootstrap core CSS -->
-<link href="templates/css/bootstrap.css" rel="stylesheet">
-<link href="templates/css/custom.css" rel="stylesheet">
-
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
-
-    
-    <!-- Custom styles for this template -->
-    <link href="navbar-top-fixed.css" rel="stylesheet">
-  </head>
-  <body>
-    
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="index.html">Talking Space</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-      <ul class="navbar-nav  navbar-right me-auto mb-2 mb-md-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="create.html">Create An Account</a>
-        </li>
-           <li class="nav-item">
-          <a class="nav-link" href="topic.html">Create Topics</a>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<main class="container">
-  
-<div class="row">
-<div class="col-md-8">
-<div class="main-col">
-<div class="block">
-<h1 class="pull-left">Welcome to Talking Space.</h1>
-<h4 class="pull-right">A simple PHP Forum engine.</h4>
-<div class="clearfix">
+<?php include 'includes/header.php'; ?>
 <hr>
 <ul id="topics">
 <?php if($topics) : ?>
@@ -85,10 +25,10 @@ $topics = $topicClass->getAllTopics();
 </div>
 <div class="col-md-10">
 <div class="topic-content pull-right">
-<h3><a href="topic.html"><?php echo $topic->title; ?></a></h3>
+<h3><a href="topic.php"><?php echo $topic->title; ?></a></h3>
 <div class="topic-info">
-<a href="category.html">Development</a> >> <a href="profile.html">BradT@1</a>    
-<span class="badge pull-right">3</span>
+<a href="category.php"><?php echo $topic->name; ?></a> >> <a href="profile.html"><?php echo urlFormat($topic->username); ?></a> >> <?php echo formatDate($topic->create_date); ?>    
+<span class="badge pull-right" style="float: right; background: #5c5b69; color: white;" ><?php echo replyCount($topic->id); ?></span>
 </div>
 </div>
 </div>
@@ -135,8 +75,8 @@ $topics = $topicClass->getAllTopics();
 <h3>Forum Statistics</h3>
 <ul>
 <li>Total Number of Users: <strong>52</strong></li>
-<li>Total Number of Topics: <strong>10</strong></li>
-<li>Total Number of Categories: <strong>5</strong></li>  </ul>   
+<li>Total Number of Topics: <strong><?php echo $totalTopics; ?></strong></li>
+<li>Total Number of Categories: <strong><?php echo $totalCategories; ?></strong></li></ul>   
 </div>
 </div>   
 </div>
@@ -164,12 +104,16 @@ $topics = $topicClass->getAllTopics();
 <div class="block">
   <h3>Categories</h3>    
  <div class="list-group">
- <a href="" class="list-group-item active">All Topics <span class="badge pull-right" style="float: right; background: white; color: #5c5b69;" >14</span></a>    
- <a href="" class="list-group-item">Design<span class="badge" style="float: right; color: white; background-color: #5c5b69;" >4</span></a>    
+ <a href="topics.php" class="list-group-item <?php echo is_active(null); ?>">All Topics <span class="badge pull-right" style="float: right; background: white; color: #5c5b69;" >14</span></a> 
+ <?php foreach(getCategories() as $category) : ?>     
+ <a href="topics.php?category=<?php echo $category->id; ?>" class="list-group-item <?php echo is_active($category->id); ?> "><?php echo $category->name; ?><span class="badge" style="float: right; color: white; background-color: #5c5b69;" >4</span></a>
+ <?php endforeach; ?>     
+<!--
  <a href="" class="list-group-item">Development <span class="badge" style="float: right; color: white; background-color: #5c5b69;">9</span></a>    
  <a href="" class="list-group-item">Business & Marketing <span class="badge pull-right" style="float: right; color: white; background-color: #5c5b69;">12</span></a> 
 <a href="" class="list-group-item">Search Engines<span class="badge pull-right" style="float: right; color: white; background-color: #5c5b69;">7</span></a> 
 <a href="" class="list-group-item">Cloud & Hosting <span class="badge pull-right" style="float: right; color: white; background-color: #5c5b69;" >3</span></a>          
+-->
 </div>     
 </div>
 </div>  

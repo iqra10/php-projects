@@ -1,7 +1,8 @@
 <?php session_start(); ?>
 
 <?php
-require_once('../index.php');
+
+//require_once('../index.php');
 
 require_once(ABSPATH.'config/config.php');
 

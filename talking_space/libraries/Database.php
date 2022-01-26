@@ -30,7 +30,7 @@ try {
      
  $this->dbh = new PDO ($dsn, $this->user, $this->pass, $options); 
     
- if($this->dbh) echo "Connected";
+// if($this->dbh) echo "Connected";
      
  } // catch any errors
 catch (PDOException $e) {
@@ -86,7 +86,7 @@ public function resultset() {
 public function single() {
     
     $this->execute();
-    return $this->$stmt->fetch(PDO::FETCH_OBJ);
+    return $this->stmt->fetch(PDO::FETCH_OBJ);
 }    
  
 public function rowCount() {

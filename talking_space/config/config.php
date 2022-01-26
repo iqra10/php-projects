@@ -9,5 +9,6 @@ define('SITE_TITLE', 'Welcome to Talking Space!');
 
 // Paths
 define('BASE_URI', 'http://'.$_SERVER['SERVER_NAME'].'/talkingspace/');
+   $base_url ="http://".$_SERVER['SERVER_NAME'].dirname($_SERVER["REQUEST_URI"].'?').'/';
 
 ?>
